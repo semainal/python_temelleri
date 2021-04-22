@@ -23,3 +23,4 @@ for tr in list:
     
     print(f"{count}- Film: {title.ljust(50)} Yıl: {year} Değerlendirme: {rating}")
     count+=1
+
