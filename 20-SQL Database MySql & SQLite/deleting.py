@@ -1,0 +1,127 @@
+import mysql.connector
+
+def insertProduct(name, price, imageUrl, description):
+    connection = mysql.connector.connect(host="localhost", user = "root", password= "Sema_tolga85", database="node-app")
+    cursor = connection.cursor()
+
+    sql = "INSERT INTO Products1(name,price,imageURL,description) VALUES (%s,%s,%s,%s)" 
+    values = (name,price,imageUrl,description)
+
+    cursor.execute(sql,values)
+
+    try:
+        connection.commit()   
+        print(f'{cursor.rowcount} tane kayıt eklendi')
+        print(f'son eklenen kaydın id: {cursor.lastrowid}')
+    except mysql.connector.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
+
+
+def insertProducts(list):
+    connection = mysql.connector.connect(host="localhost", user = "root", password="Sema_tolga85", database="node-app")
+    cursor = connection.cursor()
+
+    sql = "INSERT INTO Products1(name,price,imageURL,description) VALUES (%s,%s,%s,%s) " 
+    values = list
+
+    cursor.executemany(sql,values)
+
+    try:
+        connection.commit()   
+        print(f'{cursor.rowcount} tane kayıt eklendi')
+        print(f'son eklenen kaydın id: {cursor.lastrowid}')
+    except mysql.connector.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
+
+
+def getProducts():
+    connection = mysql.connector.connect(host="localhost", user = "root", password= "Sema_tolga85", database="node-app")
+    cursor = connection.cursor()
+
+    # cursor.execute("SELECT * FROM Products1 Order By Name")
+    # cursor.execute("SELECT * FROM Products1 Order By price")
+    # cursor.execute("SELECT * FROM Products1 Order By id ASC") # ASC dersen değişen bişey olmaz artan biş sekilde sıralar
+    # cursor.execute("SELECT * FROM Products1 Order By id DESC") # azalan bir şekilde sıralar
+    # cursor.execute("SELECT * FROM Products1 Order By price DESC")
+    cursor.execute("SELECT * FROM Products1 Order By name, price") # önce name e göre sıralar sonra, kendi içinde fiyat sıralaması yapar. 
+    
+    
+    try:
+        result = cursor.fetchall()
+        for product in result:
+            print(f" id= {product[0]} name: {product[1]} price {product[2]}")
+
+    except mysql.connector.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
+
+
+def getProductById(id):
+    connection = mysql.connector.connect(host="localhost", user = "root", password= "Sema_tolga85", database="node-app")
+    cursor = connection.cursor()
+
+    sql = "SELECT * FROM products1 WHERE id=%s"
+    params = (id,)
+
+    cursor.execute(sql, params)
+
+    result = cursor.fetchone()
+
+    print(f"id: {result[0]} name: {result[1]} price: {result[2]}")
+
+
+def updateProduct(id, name, price):
+    
+    connection = mysql.connector.connect(host="localhost", user = "root", password= "Sema_tolga85", database="node-app")
+    cursor = connection.cursor()
+
+    # sql = "Update products1 Set name = 'Samsung S10' where id=5 " #id si 5 olan kaydı güncelledik.
+    # sql = "Update products1 Set name = 'Samsung S10',price = 4000 where id=1 "
+    #id, name ve price vererek yapmak için:
+    #name i değiştirmek istemiyorsan: if name! ="" ifadesiyle boşluk değer gönderebilirsin.
+
+
+    sql= "UPDATE products1 SET name = %s, price = %s where id= %s"
+    values = (name,price, id)
+    cursor.execute(sql, values)
+
+    try:
+        connection.commit()   
+        print(f'{cursor.rowcount} tane kayıt eklendi')
+    except mysql.connector.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
+
+
+def deleteProduct(id):
+    connection = mysql.connector.connect(host="localhost", user = "root", password= "Sema_tolga85", database="node-app")
+    cursor = connection.cursor()
+
+    # sql= "delete from products1" # bunu çalıştırırsan bütün tablo silinir.
+    # sql= "delete from products1 where id=6"
+    # sql= "delete from products1 where name like '%s7'" # s7 ler silindi.
+    sql= "delete from products1 where id=%s"
+    values = (id,)
+    cursor.execute(sql, values)
+
+    try:
+        connection.commit()   
+        print(f'{cursor.rowcount} tane kayıt silindi')
+    except mysql.connector.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
+
+deleteProduct(5)
+getProducts()
