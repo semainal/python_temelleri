@@ -1,10 +1,10 @@
 import mysql.connector
 
 def insertProduct(name, price, imageUrl, description):
-    connection = mysql.connector.connect(host="localhost", user = "root", password= "Sema_tolga85", database="node-app")
+    connection = mysql.connector.connect(host="localhost", user = "root", password="sema_tolga85", database="node_app")
     cursor = connection.cursor()
 
-    sql = "INSERT INTO Products1(name,price,imageURL,description) VALUES (%s,%s,%s,%s)" 
+    sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)" 
     values = (name,price,imageUrl,description)
 
     cursor.execute(sql,values)
@@ -21,10 +21,10 @@ def insertProduct(name, price, imageUrl, description):
 
 
 def insertProducts(list):
-    connection = mysql.connector.connect(host="localhost", user = "root", password="Sema_tolga85", database="node-app")
+    connection = mysql.connector.connect(host="localhost", user = "root", password="mysql1234", database="node_app")
     cursor = connection.cursor()
 
-    sql = "INSERT INTO Products1(name,price,imageURL,description) VALUES (%s,%s,%s,%s) " 
+    sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)" 
     values = list
 
     cursor.executemany(sql,values)
@@ -58,5 +58,3 @@ while True:
         break
 
 # insertProduct(name, price, imageUrl, description)
-
-
