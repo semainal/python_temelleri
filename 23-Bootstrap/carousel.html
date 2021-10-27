@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Collapse & Accordion</title>
+
+    <style>
+
+    </style>
+
+
+</head>
+
+<body class="container my-4">
+
+    <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/gökyüzü.jpg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/airbus.png" alt="">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/boeing.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="slider1" class="carousel slide my-5" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/gökyüzü.jpg" alt="">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/airbus.png" alt="">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/boeing.png" alt="">
+            </div>
+        </div>
+        <a href="#slider1" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+
+        <a href="#slider1" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+
+
+    <div id="slider2" class="carousel slide carousel-fade my-5" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#slider2" daata-slide-to="0" class="active"></li>
+            <li data-target="#slider2" daata-slide-to="1"></li>
+            <li data-target="#slider2" daata-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/gökyüzü.jpg" alt="">
+                <div class="carousel-caption">
+                    <h5>Slider Haeder 1</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, non.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/airbus.png" alt="">
+                <div class="carousel-caption">
+                    <h5>Slider Haeder 2</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, non.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/boeing.png" alt="">
+                <div class="carousel-caption">
+                    <h5>Slider Haeder 3</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, non.</p>
+                </div>
+            </div>
+        </div>
+        <a href="#slider2" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+
+        <a href="#slider2" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+
+
+
+
+    <div id="slider3" class="carousel slide carousel-fade my-5">
+        <ol class="carousel-indicators">
+            <li data-target="#slider3" daata-slide-to="0" class="active"></li>
+            <li data-target="#slider3" daata-slide-to="1"></li>
+            <li data-target="#slider3" daata-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/gökyüzü.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Slider Haeder 1</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, non.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/airbus.png" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Slider Haeder 2</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, non.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/boeing.png" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Slider Haeder 3</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, non.</p>
+                </div>
+            </div>
+        </div>
+        <a href="#slider3" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+
+        <a href="#slider3" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+        <script>
+            $(function(){
+                $("#slider3").carousel({
+                    interval: 2000,
+                    keyword: false,
+                    pause:false,
+                    wrap: false
+                });
+
+
+            });
+        </script>
+</body>
+
+</html>
